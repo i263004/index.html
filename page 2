@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Wireless Earbuds</title>
+    <style>
+        :root {
+            --bg-cream: #FFFDF9;
+            --bg-cream-soft: #FDFBF7;
+            --card-white: #FFFFFF;
+            --border-cream: #F1ECE1;
+            --text-dark: #1C1917;
+            --text-muted: #78716C;
+            --accent-gold: #B45309;
+            --shadow-cream: 0 15px 35px rgba(180, 83, 9, 0.06);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            animation: fadeIn 0.8s ease-in forwards;
+        }
+
+        nav {
+            background: rgba(255, 253, 249, 0.9);
+            backdrop-filter: blur(16px);
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-cream);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            color: var(--text-dark);
+            font-weight: 900;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            animation: slideDown 0.6s ease-out;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card-white);
+            padding: 2.5rem 2rem;
+            border-radius: 24px;
+            border: 1px solid var(--border-cream);
+            box-shadow: var(--shadow-cream);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            animation: cardEntrance 0.8s ease forwards;
+            opacity: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.1s; }
+        .feature-card:nth-child(2) { animation-delay: 0.25s; }
+        .feature-card:nth-child(3) { animation-delay: 0.4s; }
+        .feature-card:nth-child(4) { animation-delay: 0.55s; }
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gold);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(180, 83, 9, 0.12);
+            border-color: var(--accent-gold);
+        }
+
+        .feature-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background: var(--bg-cream-soft);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-cream);
+            animation: iconPulse 3s infinite ease-in-out;
+        }
+
+        .feature-card h3 {
+            margin: 0 0 0.8rem 0;
+            color: var(--text-dark);
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 0.98rem;
+            margin: 0;
+        }
+
+        /* Deep Spec Comparison Matrix */
+        .comparison-section {
+            margin-top: 5rem;
+            background: var(--card-white);
+            border: 1px solid var(--border-cream);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-cream);
+        }
+
+        .comparison-section h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-cream);
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: var(--bg-cream-soft);
+            color: var(--text-dark);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes cardEntrance {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">AUDIO TECH</div>
+        <div class="nav-links">
+            <a href="PRODUCT.html">Home</a>
+            <a href="features.html" class="active">Features</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Tech & Acoustic Highlights</h1>
+        <p class="subtitle">Engineered for clarity, reliability, and all-day immersive acoustic performance.</p>
+
+        <div class="grid">
+            <div class="feature-card">
+                <div class="icon-wrapper">🎵</div>
+                <h3>Custom Sound Driver</h3>
+                <p>High-amplitude dynamic drivers delivering deep, distortion-free bass and spatial audio support for complete studio immersion.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-wrapper">🔇</div>
+                <h3>Active Noise Cancellation</h3>
+                <p>Adaptive ANC filters out environmental sound in real-time, reducing background noise by up to 35dB.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-wrapper">⚡</div>
+                <h3>40-Hour Battery Life</h3>
+                <p>Enjoy up to 6 hours on a single charge, plus an additional 34 hours of playback from the compact charging case.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-wrapper">🎙️</div>
+                <h3>6-Microphone Array</h3>
+                <p>Beamforming microphone technology suppresses wind noise and focuses on your voice for crystal-clear calls anywhere.</p>
+            </div>
+        </div>
+
+        <!-- Detailed Feature Matrix -->
+        <div class="comparison-section">
+            <h2>Detailed Specification Breakdown</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature Specification</th>
+                        <th>Wireless Earbuds Standard</th>
+                        <th>Competitor Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ANC Reduction Depth</strong></td>
+                        <td>Up to 35 dB Adaptive Blocking</td>
+                        <td>25 dB Static Blocking</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Battery Reserve</strong></td>
+                        <td>40 Hours (6h + 34h Case)</td>
+                        <td>24 Hours</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Microphone Setup</strong></td>
+                        <td>6-Microphone Beamforming Array</td>
+                        <td>2-Microphone Standard</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bluetooth Protocol</strong></td>
+                        <td>Bluetooth 5.3 Low-Latency Audio</td>
+                        <td>Bluetooth 5.0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
