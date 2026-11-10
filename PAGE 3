@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews - Wireless Earbuds</title>
+    <style>
+        :root {
+            --bg-cream: #FFFDF9;
+            --bg-cream-soft: #FDFBF7;
+            --card-white: #FFFFFF;
+            --border-cream: #F1ECE1;
+            --text-dark: #1C1917;
+            --text-muted: #78716C;
+            --accent-gold: #B45309;
+            --shadow-cream: 0 15px 35px rgba(180, 83, 9, 0.05);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background: rgba(255, 253, 249, 0.9);
+            backdrop-filter: blur(16px);
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-cream);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            color: var(--text-dark);
+            font-weight: 900;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--text-dark);
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            animation: fadeIn 0.6s ease-out;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+        }
+
+        .rating-summary {
+            background: var(--card-white);
+            border: 1px solid var(--border-cream);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow-cream);
+        }
+
+        .score {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            line-height: 1;
+        }
+
+        .review-card {
+            background: var(--card-white);
+            padding: 2rem 2.5rem;
+            margin-bottom: 1.8rem;
+            border-left: 6px solid var(--accent-gold);
+            border-top: 1px solid var(--border-cream);
+            border-right: 1px solid var(--border-cream);
+            border-bottom: 1px solid var(--border-cream);
+            border-radius: 20px;
+            box-shadow: var(--shadow-cream);
+            opacity: 0;
+            transform: translateX(-40px);
+            animation: slideIn 0.8s forwards cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateX(8px) scale(1.01);
+            box-shadow: 0 20px 40px rgba(180, 83, 9, 0.1);
+        }
+
+        .review-card:nth-child(1) { animation-delay: 0.2s; }
+        .review-card:nth-child(2) { animation-delay: 0.4s; }
+        .review-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .stars {
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 3px;
+        }
+
+        .review-text {
+            font-size: 1.08rem;
+            line-height: 1.7;
+            color: #44403C;
+            margin: 0;
+        }
+
+        .author {
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-top: 1.2rem;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .verified-badge {
+            background: var(--bg-cream-soft);
+            color: var(--accent-gold);
+            border: 1px solid var(--border-cream);
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">AUDIO TECH</div>
+        <div class="nav-links">
+            <a href="PRODUCT.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="reviews.html" class="active">Reviews</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>What Our Customers Say</h1>
+        <p class="subtitle">Verified reviews from audiophiles and everyday users.</p>
+
+        <!-- Rating Score Overview -->
+        <div class="rating-summary">
+            <div>
+                <div class="score">4.9</div>
+                <div class="stars">★★★★★</div>
+                <div style="color: var(--text-muted); font-size: 0.9rem;">Average Rating out of 5</div>
+            </div>
+            <div style="text-align: left;">
+                <p style="margin: 0.3rem 0; font-weight: 600;">98% Customer Satisfaction</p>
+                <p style="margin: 0.3rem 0; color: var(--text-muted); font-size: 0.9rem;">Based on 1,450+ verified Pakistani customer reviews</p>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"The active noise cancellation is insane for this price. Fits snugly during my morning runs and I rarely have to charge the case."</p>
+            <div class="author">— Ahmed K. <span class="verified-badge">Verified Buyer</span></div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Studio-quality sound for under 4000 PKR is unbeatable. Battery life actually matches what is advertised."</p>
+            <div class="author">— Sara T. <span class="verified-badge">Verified Buyer</span></div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★☆</div>
+            <p class="review-text">"Microphone clarity on call meetings is super crisp. Great build quality overall."</p>
+            <div class="author">— Bilal M. <span class="verified-badge">Verified Buyer</span></div>
+        </div>
+    </div>
+
+</body>
+</html>
